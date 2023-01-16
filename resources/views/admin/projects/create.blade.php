@@ -7,6 +7,7 @@
 
             <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                {{-- img-preview --}}
                 <div class="form-group mb-4">
                     <label for="img">Image:</label>
                     <input type="file" name="img" id="img"
@@ -24,6 +25,9 @@
 
                     </div>
                 </div>
+                {{-- /img-preview --}}
+
+                {{-- name --}}
                 <div class="form-group mb-4">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" value="{{ old('name') }}"
@@ -34,6 +38,26 @@
                         </div>
                     @enderror
                 </div>
+                {{-- /name --}}
+
+                {{-- types --}}
+                <div class="form-group mb-4">
+                    <label for="type">Type:</label>
+                    <select name="type_id" id="type" class="form-select @error('type_id') is-invalid @enderror">
+                        <option value="">Select type</option>
+                        @foreach ($types as $type)
+                            <option value="{{ $type->id }}" @selected(old('type_id') == $type->id)>{{ $type->name }}</option>
+                        @endforeach
+                    </select>
+                    @error('type_id')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+                {{-- /types --}}
+
+                {{-- description --}}
                 <div class="form-group mb-4">
                     <label for="description">Description:</label>
                     <textarea name="description" id="description" name="description" cols="30" rows="3"
@@ -44,7 +68,14 @@
                         </div>
                     @enderror
                 </div>
-                <button class="btn btn-success" type="submit">Save</button>
+                {{-- /description --}}
+
+                {{-- submit btn --}}
+                <div class="btn-wrapper d-flex justify-content-center">
+                    <button class="btn btn-success px-4" type="submit">Save</button>
+                </div>
+                {{-- submit btn --}}
+
             </form>
         </div>
     </div>

@@ -32,6 +32,13 @@
                 </li>
                 {{-- name --}}
 
+                {{-- type --}}
+                <li class="list-group-item d-flex justify-content-between">
+                    <span class="text-secondary">Type:</span>
+                    <span>{{ $project->type_id ? $project->type_id->name : 'Not assigned' }}</span>
+                </li>
+                {{-- type --}}
+
                 {{-- description --}}
                 <li class="list-group-item d-flex justify-content-between">
                     <span class="text-secondary">description:</span>
