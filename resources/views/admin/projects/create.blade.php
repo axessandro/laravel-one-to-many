@@ -7,7 +7,7 @@
 
             <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                {{-- img-preview --}}
+                {{-- img --}}
                 <div class="form-group mb-4">
                     <label for="img">Image:</label>
                     <input type="file" name="img" id="img"
@@ -25,7 +25,7 @@
 
                     </div>
                 </div>
-                {{-- /img-preview --}}
+                {{-- /img --}}
 
                 {{-- name --}}
                 <div class="form-group mb-4">

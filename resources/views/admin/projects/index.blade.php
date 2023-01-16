@@ -14,7 +14,7 @@
                 <tr>
                     <th>Img</th>
                     <th>Name</th>
-                    <th>Created at</th>
+                    <th>Type</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -31,7 +31,7 @@
                             @endif
                         </td>
                         <td>{{ $project->name }}</td>
-                        <td>{{ $project->created_at }}</td>
+                        <td>{{ $project->type ? $project->type->name : '' }}</td>
                         {{-- actions --}}
                         <td>
                             <div class="d-flex">
